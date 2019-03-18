@@ -1,6 +1,7 @@
 # Aviasales Test Task
 
-## The task:
+## The task: 
+https://github.com/KosyanMedia/test-tasks/tree/master/gates_team_fullstack
 * Сверcтать макет (необязательно pixel perfect);
 * Написать фронтенд на react-стеке;
 * Поднять веб-сервер на python, который будет отдавать нужные данные на фронт (данные в файле dashboard_data.json).
