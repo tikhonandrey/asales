@@ -1,5 +1,18 @@
 @import '../../vars';
 
 .indicatorExtraData {
-
+  h2 {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  .description {
+    color: $second-text;
+    margin: 0 0 5px 0;
+  }
+  .help {
+    a {
+      white-space: nowrap;
+    }
+  }
 }

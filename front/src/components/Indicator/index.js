@@ -13,6 +13,7 @@ const Indicator = ({
   title,
 }) => {
   //todo обработать начало или ошибка
+  //красный отрицательный процент
   const status = current >= previous ? 'good' : 'bad';
   let diff = Math.floor(current / (previous * 100));
   diff = diff > 0 ? `+${diff}` : diff;

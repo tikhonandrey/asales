@@ -2,8 +2,10 @@
 
 .tabPanel {
   margin: 20px 0;
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-auto-columns: 96px;
+  grid-auto-flow: column;
+  grid-gap: 0;
   .selected a {
     background-color: $blue;
     color: $white !important;
@@ -26,7 +28,6 @@
       justify-content: center;
       border: 1px solid $border;
       box-sizing: border-box;
-      width: 96px;
       height: 32px;
       color: $text;
       text-transform: capitalize;

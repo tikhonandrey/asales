@@ -55,7 +55,7 @@ class Dashboard extends Component {
       title: 'searches',
       current: metrics[`searches_current_${selected}`],
       previous: metrics[`searches_previous_${selected}`],
-      currentPeriod: selected,
+      currentPeriod: tabPanelItems[selected],
       previousPeriod: 'Last friday', //todo прошлый период??
     };
     const clicksIndicatorProps = {
@@ -63,7 +63,7 @@ class Dashboard extends Component {
       title: 'clicks',
       current: metrics[`clicks_current_${selected}`],
       previous: metrics[`clicks_previous_${selected}`],
-      currentPeriod: selected,
+      currentPeriod: tabPanelItems[selected],
       previousPeriod: 'Last friday', //todo прошлый период??
     };
     const bookungsIndicatorProps = {
@@ -71,7 +71,7 @@ class Dashboard extends Component {
       title: 'bookings',
       current: metrics[`bookings_current_${selected}`],
       previous: metrics[`bookings_previous_${selected}`],
-      currentPeriod: selected,
+      currentPeriod: tabPanelItems[selected],
       previousPeriod: 'Last friday', //todo прошлый период??
     };
     return (
