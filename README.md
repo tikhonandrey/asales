@@ -15,6 +15,7 @@ P.S. Оценивать будем умение выполнять задачу 
 под Windows можно установить с помощью команды в коноли из под админа :
 `npm install --global --production windows-build-tools`
 ## Launch project
+```cd ./front```
 ```yarn```
 
 ```yarn start```
