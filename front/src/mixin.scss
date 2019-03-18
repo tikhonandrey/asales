@@ -1,0 +1,82 @@
+@import 'vars';
+@mixin for-xsmall-only {
+  @media (max-width: $screen-xsmall - 1px) {
+    @content;
+  }
+}
+
+@mixin for-small-and-more {
+  @media (min-width: $screen-xsmall) {
+    @content;
+  }
+}
+
+@mixin for-medium-and-more {
+  @media (min-width: $screen-small) {
+    @content;
+  }
+}
+
+@mixin for-large-and-more {
+  @media (min-width: $screen-medium) {
+    @content;
+  }
+}
+
+@mixin for-max {
+  @media (min-width: $screen-max) {
+    @content;
+  }
+}
+
+@mixin for-min {
+  @media (max-width: $screen-min) {
+    @content;
+  }
+}
+@mixin for-small-and-less {
+  @media (max-width: $screen-small - 1px) {
+    @content;
+  }
+}
+
+@mixin for-small-only {
+  @media (min-width: $screen-xsmall) and (max-width: $screen-small - 1) {
+    @content;
+  }
+}
+
+@mixin for-small-and-medium {
+  @media (min-width: $screen-xsmall) and (max-width: $screen-medium - 1) {
+    @content;
+  }
+}
+
+@mixin for-medium-only {
+  @media (min-width: $screen-small) and (max-width: $screen-medium - 1) {
+    @content;
+  }
+}
+
+@mixin for-medium-and-less {
+  @media (max-width: $screen-medium - 1px) {
+    @content;
+  }
+}
+
+@mixin for-large-and-less {
+  @media (max-width: $screen-max - 1px) {
+    @content;
+  }
+}
+
+@mixin for-retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
