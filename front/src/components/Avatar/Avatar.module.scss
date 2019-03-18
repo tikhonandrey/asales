@@ -1,12 +1,21 @@
 @import '../../vars';
 
 .avatar {
+  img{
+    display: none;
+    margin: 0 0 0 14px;
+    &.active{
+      display: block;
+    }
+  }
   .circle {
     position: relative;
     border-radius: 24px;
     width: 48px;
     height: 48px;
     background-color: $blue;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
   .status {
     border-radius: 50%;
@@ -22,5 +31,17 @@
   }
   .bad {
     background-color: $red;
+  }
+  .searches {
+    background-image: url('./images/filter.svg');
+  }
+  .clicks {
+    background-image: url('./images/click.svg');
+  }
+  .bookings {
+    background-image: url('./images/booking.svg');
+  }
+  .linedown {
+    background-image: url('./images/linedown.png');
   }
 }

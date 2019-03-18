@@ -15,13 +15,16 @@ const Indicator = ({
 }) => {
   //todo обработать начало или ошибка
   //красный отрицательный процент
+
   const status = current >= previous ? 'good' : 'bad';
   let diff = Math.floor(current / (previous * 100));
   diff = diff > 0 ? `+${diff}` : diff;
+  //todo линия когда появляется?
+  const isLinedown = false;
   return (
     <div className={styles.indicator}>
       <div className={styles.info}>
-        <Avatar status={status} icon={title} />
+        <Avatar status={status} icon={title} isLinedown={isLinedown} />
         <div className={styles.infoBox}>
           <h2>
             {title}
@@ -48,6 +51,6 @@ Indicator.propTypes = {
   previous: PropTypes.number,
   currentPeriod: PropTypes.string,
   previousPeriod: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
 };
 export default Indicator;
