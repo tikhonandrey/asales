@@ -1,12 +1,15 @@
 @import '../../vars';
-
+@import '../../mixin';
 .indicator {
   margin: 20px 0;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 285px 1fr;
   grid-gap: 1vw;
   position: relative;
   padding: 20px 0;
+  @include for-xsmall-only {
+    grid-template-columns: 1fr;
+  }
   &:not(:last-of-type):before {
     content: '';
     position: absolute;
@@ -30,11 +33,14 @@
         vertical-align: middle;
         margin: 0 0 0 10px;
       }
+      .danger {
+        background-color: $red;
+      }
       h2 {
         white-space: nowrap;
         text-transform: capitalize;
         &:first-of-type {
-          margin-top: 0;
+          margin: 0;
         }
       }
       h1 {
@@ -55,5 +61,8 @@
     }
   }
   .extraData {
+    @include for-xsmall-only {
+      padding: 0 0 0 70px;
+    }
   }
 }

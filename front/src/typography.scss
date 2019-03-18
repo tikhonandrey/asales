@@ -1,4 +1,5 @@
 @import 'vars';
+@import 'mixin';
 body {
   font-family: Open Sans, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -6,6 +7,9 @@ body {
   font-size: 14px;
   line-height: 1.75;
   color: $text;
+  @include for-xsmall-only {
+    font-size: 12px;
+  }
 }
 
 h1,
@@ -19,14 +23,23 @@ h5 {
 
 h1 {
   font-size: 22px;
+  @include for-xsmall-only {
+    font-size: 18px;
+  }
 }
 
 h2 {
   font-size: 18px;
+  @include for-xsmall-only {
+    font-size: 16px;
+  }
 }
 
 h3 {
   font-size: 16px;
+  @include for-xsmall-only {
+    font-size: 14px;
+  }
 }
 
 a {

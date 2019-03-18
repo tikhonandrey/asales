@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Indicator.module.scss';
 import Avatar from '../Avatar';
-import { formatThousands } from '../../scripts/formatData';
+import cn from 'classnames';
+import { formatThousands, getDeltaPercent } from '../../scripts/formatData';
 import { getPercent } from '../../scripts/reactHelpers';
 
 const Indicator = ({
@@ -14,16 +15,14 @@ const Indicator = ({
   previousPeriod,
   title,
 }) => {
-  //todo красный отрицательный процент
   let status;
   let diff;
+  let delta;
   if (current && previous) {
     status = current && previous && current >= previous ? 'good' : 'bad';
-    diff = Math.floor(current / (previous * 100));
-    diff = diff > 0 ? `+${diff}` : diff < 0 ? getPercent(diff) : diff;
+    delta = getDeltaPercent(previous, current);
+    diff = getPercent(delta, 0, current >= previous && '+');
   }
-  console.log('diff', diff);
-
   //todo линия когда появляется?
   const isLinedown = false;
   return (
@@ -33,7 +32,15 @@ const Indicator = ({
         <div className={styles.infoBox}>
           <h2>
             {title}
-            {diff || diff !== 0 && <span className={styles.diff}>{diff}</span>}
+            {!!diff && (
+              <span
+                className={cn(styles.diff, {
+                  [styles.danger]: delta < 0,
+                })}
+              >
+                {diff}
+              </span>
+            )}
           </h2>
           <h1>
             {current || current === 0 ? formatThousands(current) : '-'}

@@ -11,3 +11,6 @@ export const formatThousands = sourceNum => {
     .replace(/(\d{3})+?/gi, '$1 ')
     .trim();
 };
+export const getDeltaPercent = (previous, current) => {
+  return Math.round((current * 100) / previous) - 100;
+}

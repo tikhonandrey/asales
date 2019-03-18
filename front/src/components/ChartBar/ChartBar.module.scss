@@ -1,4 +1,5 @@
 @import '../../vars';
+@import '../../mixin';
 
 .chartBar {
   margin: 20px 0;
@@ -23,6 +24,10 @@
     grid-auto-columns: 150px;
     grid-auto-flow: column;
     grid-gap: 0 1vw;
+    @include for-xsmall-only {
+      grid-auto-columns: 100px;
+      grid-auto-flow: inherit;
+    }
     .legenda {
       display: flex;
       align-items: center;

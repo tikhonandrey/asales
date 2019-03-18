@@ -1,8 +1,8 @@
 import React from 'react';
 import { formatThousands } from './formatData';
-const getPercent = (float, dec = 2) => {
+const getPercent = (float, dec = 2, symbol = '') => {
   return float || float === 0 ? (
-    <span>{float.toFixed(dec).replace('.', ',')}&#37;</span>
+    <span>{symbol}{float.toFixed(dec).replace('.', ',')}&#37;</span>
   ) : (
     <span>&#8208;</span>
   );

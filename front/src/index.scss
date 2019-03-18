@@ -1,10 +1,12 @@
 @import 'vars';
-@import "typography";
+@import 'typography';
 body {
   margin: 0;
   padding: 0;
   background-color: $background;
+  overflow: hidden;
+  overflow-y: auto;
 }
-ul{
+ul {
   padding-inline-start: 0;
 }
