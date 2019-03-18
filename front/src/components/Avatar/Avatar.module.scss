@@ -18,6 +18,7 @@
     background-position: center center;
   }
   .status {
+    display: none;
     border-radius: 50%;
     border: 2px solid white;
     width: 10px;
@@ -27,9 +28,11 @@
     top: 1px;
   }
   .good {
+    display: block;
     background-color: $green;
   }
   .bad {
+    display: block;
     background-color: $red;
   }
   .searches {

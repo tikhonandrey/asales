@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Indicator.module.scss';
 import Avatar from '../Avatar';
 import { formatThousands } from '../../scripts/formatData';
+import { getPercent } from '../../scripts/reactHelpers';
 
 const Indicator = ({
   children,
@@ -13,12 +14,16 @@ const Indicator = ({
   previousPeriod,
   title,
 }) => {
-  //todo обработать начало или ошибка
-  //красный отрицательный процент
 
-  const status = current >= previous ? 'good' : 'bad';
-  let diff = Math.floor(current / (previous * 100));
-  diff = diff > 0 ? `+${diff}` : diff;
+  //красный отрицательный процент
+  let status;
+  let diff;
+  if (current && previous) {
+    status = current && previous && current >= previous ? 'good' : 'bad';
+    diff = Math.floor(current / (previous * 100));
+    diff = diff > 0 ? `+${diff}` : diff < 0 ? getPercent(diff) : diff;
+  }
+
   //todo линия когда появляется?
   const isLinedown = false;
   return (
@@ -28,14 +33,14 @@ const Indicator = ({
         <div className={styles.infoBox}>
           <h2>
             {title}
-            {diff !== 0 && <span className={styles.diff}>{diff}&#37;</span>}
+            {diff !== 0 && <span className={styles.diff}>{diff}</span>}
           </h2>
           <h1>
-            {formatThousands(current)}
+            {current || current === 0 ? formatThousands(current) : '-'}
             <span>{currentPeriod}</span>
           </h1>
           <h1>
-            {formatThousands(previous)}
+            {previous || previous === 0 ? formatThousands(previous) : '-'}
             <span>{previousPeriod}</span>
           </h1>
         </div>
