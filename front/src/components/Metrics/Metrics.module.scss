@@ -1,0 +1,17 @@
+@import '../../vars';
+
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .metricItem {
+    text-transform: capitalize;
+    h2 {
+      color: $text;
+
+    }
+    .average {
+      color: $second-text;
+    }
+  }
+}

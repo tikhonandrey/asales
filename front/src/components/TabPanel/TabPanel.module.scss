@@ -1,0 +1,54 @@
+@import '../../vars';
+
+.tabPanel {
+  display: flex;
+  flex-wrap: nowrap;
+  .selected a {
+    background-color: $blue;
+    color: $white !important;
+    border: none;
+  }
+  ul {
+    user-select: none;
+    margin: 0;
+    margin-block-start: 0;
+  }
+  li {
+    list-style-type: none;
+    &:not(:last-of-type) a {
+      border-right: none;
+    }
+    a {
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $border;
+      box-sizing: border-box;
+      width: 150px;
+      height: 32px;
+      color: $text;
+      text-transform: capitalize;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: $link-hover;
+        outline: none;
+      }
+
+      &:active {
+        color: $link-active;
+      }
+    }
+    &:first-of-type a {
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+
+    &:last-of-type a {
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  }
+}

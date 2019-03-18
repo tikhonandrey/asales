@@ -1,0 +1,10 @@
+@import 'vars';
+@import "typography";
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $background;
+}
+ul{
+  padding-inline-start: 0;
+}

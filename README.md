@@ -1,6 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+запуск web сервера 
+```
+cd ./back
+python srv.py
+```
 
 In the project directory, you can run:
 
