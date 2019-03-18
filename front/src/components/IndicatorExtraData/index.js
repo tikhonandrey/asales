@@ -11,13 +11,13 @@ const BookingsExtraData = ({ avg, str }) => {
         Conversion from clicks to bookings on all devices.
       </div>
       <div className={styles.help}>
-        Help: <a href="#">STR</a>, <a href="#">Bookings</a>,{' '}
-        <a href="#">Avg. Check</a>
+        Help: <a href="#">STR</a>, <a href="#">Bookings</a>, <a href="#">Avg. Check</a>
       </div>
     </div>
   );
 };
-const SearchesExtraData = ({ mobile, web }) => {
+const SearchesExtraData = ({ mobile, web, isDanger }) => {
+  //todo а если не весь траффик? че показывать
   return (
     <div className={styles.indicatorExtraData}>
       <div className={styles.title}>Mobile traffic: {mobile}&#37;</div>

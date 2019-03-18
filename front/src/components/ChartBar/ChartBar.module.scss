@@ -1,8 +1,10 @@
 @import '../../vars';
 
 .chartBar {
+  margin: 20px 0;
   .bar {
-    height: 20px;
+    margin: 20px 0;
+    height: 8px;
     display: flex;
     flex-wrap: nowrap;
     flex-shrink: inherit;
@@ -18,20 +20,23 @@
   }
   .legendaList {
     display: grid;
-    grid-auto-columns: 1fr;
+    grid-auto-columns: 150px;
     grid-auto-flow: column;
+    grid-gap: 0 1vw;
     .legenda {
       display: flex;
       align-items: center;
       .color {
-        width: 15px;
-        height: 15px;
+        width: 10px;
+        height: 10px;
         display: inline-block;
         border-radius: 3px;
         margin: 0 5px 0 0;
       }
       .value {
         color: $black;
+        font-size: 12px;
+        font-weight: 600;
       }
     }
   }

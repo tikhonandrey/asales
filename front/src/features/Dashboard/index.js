@@ -7,7 +7,11 @@ import TabPanel from '../../components/TabPanel';
 import Metrics from '../../components/Metrics';
 import ChartBar from '../../components/ChartBar';
 import Indicator from '../../components/Indicator';
-import { SearchesExtraData } from '../../components/IndicatorExtraData';
+import {
+  SearchesExtraData,
+  BookingsExtraData,
+  ClicksExtraData,
+} from '../../components/IndicatorExtraData';
 import { METRICS_AVERAGE } from './consts.js';
 
 //todo режим лоадинг(заглушки вместо данных)
@@ -48,8 +52,27 @@ class Dashboard extends Component {
     };
     const searchesIndicatorProps = {
       loading,
+      title: 'searches',
       current: metrics[`searches_current_${selected}`],
       previous: metrics[`searches_previous_${selected}`],
+      currentPeriod: selected,
+      previousPeriod: 'Last friday', //todo прошлый период??
+    };
+    const clicksIndicatorProps = {
+      loading,
+      title: 'clicks',
+      current: metrics[`clicks_current_${selected}`],
+      previous: metrics[`clicks_previous_${selected}`],
+      currentPeriod: selected,
+      previousPeriod: 'Last friday', //todo прошлый период??
+    };
+    const bookungsIndicatorProps = {
+      loading,
+      title: 'bookings',
+      current: metrics[`bookings_current_${selected}`],
+      previous: metrics[`bookings_previous_${selected}`],
+      currentPeriod: selected,
+      previousPeriod: 'Last friday', //todo прошлый период??
     };
     return (
       <ErrorBoundary
@@ -65,8 +88,24 @@ class Dashboard extends Component {
           <Indicator {...searchesIndicatorProps}>
             <SearchesExtraData
               {...{
-                mobile: metrics[`mobile_pessimizer_${selected}`],
-                web: metrics[`web_pessimizer_${selected}`],
+                mobile: metrics[`mobile_pessimizer`],
+                web: metrics[`web_pessimizer`],
+              }}
+            />
+          </Indicator>
+          <Indicator {...clicksIndicatorProps}>
+            <ClicksExtraData
+              {...{
+                ctr: metrics[`ctr_${selected}`],
+                isDanger: true, //todo
+              }}
+            />
+          </Indicator>
+          <Indicator {...bookungsIndicatorProps}>
+            <BookingsExtraData
+              {...{
+                str: metrics[`str_${selected}`],
+                avg: metrics[`avg_price_${selected}`],
               }}
             />
           </Indicator>

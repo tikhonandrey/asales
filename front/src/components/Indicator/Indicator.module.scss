@@ -1,4 +1,56 @@
 @import '../../vars';
 
 .indicator {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 285px 1fr;
+  position: relative;
+  padding: 20px 0;
+  &:not(:last-of-type):before {
+    content: '';
+    position: absolute;
+    left: 70px;
+    bottom: 0;
+    height: 1px;
+    width: calc(100% - 285px);
+    border-bottom: 1px solid $border;
+  }
+  .info {
+    display: flex;
+    .infoBox {
+      padding: 0 0 0 20px;
+      .diff {
+        background-color: $green;
+        border-radius: 10px;
+        padding: 0 5px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: normal;
+        vertical-align: middle;
+        margin: 0 0 0 10px;
+      }
+      h2 {
+        text-transform: capitalize;
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+      h1 {
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        &:last-of-type {
+          color: $second-text;
+        }
+        span {
+          margin: 0 0 0 10px;
+          font-size: 14px;
+          font-weight: normal;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  .extraData {
+  }
 }

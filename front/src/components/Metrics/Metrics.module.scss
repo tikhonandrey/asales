@@ -1,17 +1,30 @@
 @import '../../vars';
 
 .metrics {
+  margin: 20px 0;
+  padding: 20px 0 0 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
   .metricItem {
+    display: flex;
+    align-items: baseline;
     text-transform: capitalize;
-    h2 {
-      color: $text;
-
+    .status {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $green;
+      margin: 0 5px 0 0;
+    }
+    h3 {
+      margin: 0;
     }
     .average {
       color: $second-text;
+      font-size: 12px;
+      font-weight: 600;
     }
   }
 }

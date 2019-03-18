@@ -9,12 +9,15 @@ const MetricValue = ({ value }) =>
 const Metric = ({ name, value, average }) => {
   return (
     <div className={styles.metricItem}>
-      <h3>
-        {name}: <MetricValue value={value} />
-      </h3>
-      <span className={styles.average}>
-        Average: <MetricValue value={average} />
-      </span>
+      <div className={styles.status} />
+      <div>
+        <h3>
+          {name}: <MetricValue value={value} />
+        </h3>
+        <span className={styles.average}>
+          Average: <MetricValue value={average} />
+        </span>
+      </div>
     </div>
   );
 };
