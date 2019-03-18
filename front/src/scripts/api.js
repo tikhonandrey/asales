@@ -1,4 +1,4 @@
-const API_SRV = 'http://localhost:8000';
+const API_SRV = 'http://127.0.0.1:8000';
 const getDashboardData = () => {
   return fetch(`${API_SRV}/dashboard_data.json`)
     .then(response => response.json())

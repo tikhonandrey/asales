@@ -58,5 +58,24 @@
       border-bottom-right-radius: 5px;
       border-top-right-radius: 5px;
     }
+    @include for-xsmall-only {
+      &:first-of-type a {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 5px;
+      }
+      &:nth-child(2) a {
+        border-top-right-radius: 5px;
+      }
+      &:nth-child(3) a {
+        border-bottom-left-radius: 5px;
+      }
+      &:last-of-type a {
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 0;
+      }
+      a{
+        border-right: 1px solid $border !important;
+      }
+    }
   }
 }

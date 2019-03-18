@@ -14,7 +14,7 @@ const TabPanel = ({ items, selected, onClick }) => {
           })}
         >
           <a
-            tabIndex={0}
+            tabIndex={1}
             draggable="false"
             href={`#${key}`}
             onClick={onClick(key)}
