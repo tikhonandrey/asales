@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Metrics.module.scss';
 import cn from 'classnames';
 import { getPercent } from '../../scripts/reactHelpers';
@@ -30,5 +31,16 @@ const Metrics = ({ loading, errors, zeroes, timeout, average }) => {
     </div>
   );
 };
-
+Metric.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.number,
+  average: PropTypes.number,
+};
+Metrics.propTypes = {
+  loading: PropTypes.bool,
+  errors: PropTypes.number,
+  zeroes: PropTypes.number,
+  timeout: PropTypes.number,
+  average: PropTypes.number,
+};
 export default Metrics;

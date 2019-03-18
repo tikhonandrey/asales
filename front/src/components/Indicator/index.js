@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Indicator.module.scss';
 import Avatar from '../Avatar';
 import { formatThousands } from '../../scripts/formatData';
@@ -40,5 +41,13 @@ const Indicator = ({
     </div>
   );
 };
-
+Indicator.propTypes = {
+  children: PropTypes.node,
+  loading: PropTypes.bool,
+  current: PropTypes.number,
+  previous: PropTypes.number,
+  currentPeriod: PropTypes.string,
+  previousPeriod: PropTypes.string,
+  title: PropTypes.string
+};
 export default Indicator;

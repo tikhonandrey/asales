@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './ErrorBoundary.module.scss';
 
 class ErrorBoundary extends Component {
+  static propTypes = {
+    children: PropTypes.node,
+  };
   constructor(props) {
     super(props);
     this.state = { error: null, errorInfo: null };

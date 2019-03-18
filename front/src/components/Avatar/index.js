@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Avatar.module.scss';
 import cn from 'classnames';
 const Avatar = ({ status, icon }) => {
@@ -15,5 +16,8 @@ const Avatar = ({ status, icon }) => {
     </div>
   );
 };
-
+Avatar.propTypes = {
+  status: PropTypes.string,
+  icon: PropTypes.string.isRequired,
+};
 export default Avatar;

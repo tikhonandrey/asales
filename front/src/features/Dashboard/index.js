@@ -44,7 +44,7 @@ class Dashboard extends Component {
       errors: metrics[`errors_${selected}`],
       zeroes: metrics[`zeroes_${selected}`],
       timeout: metrics[`timeout_${selected}`],
-      average: METRICS_AVERAGE,
+      average: METRICS_AVERAGE,  //todo откуда это взятьсреднее от чего, за какой период?
     };
     const chartBar = {
       loading,

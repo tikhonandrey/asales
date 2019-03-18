@@ -1,8 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './ExtraData.module.scss';
 import cn from 'classnames';
 import { getInt, getPercent } from '../../scripts/reactHelpers';
 
+const Link = ({ children }) => {
+  return (
+    <a
+      href="https://www.aviasales.ru/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children}
+    </a>
+  );
+};
 const SearchesExtraData = ({ mobile, web, isDanger }) => {
   //todo а если не весь траффик? че показывать в description
   const desc = `You get 100% traffic on mobile and desktop devices.`;
@@ -12,22 +24,7 @@ const SearchesExtraData = ({ mobile, web, isDanger }) => {
       <h2>Web traffic: {getPercent(web, 0)}</h2>
       <div className={styles.description}>{desc}</div>
       <div className={styles.help}>
-        Help:&nbsp;
-        <a
-          href="https://www.aviasales.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Searches
-        </a>
-        ,&nbsp;
-        <a
-          href="https://www.aviasales.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Pessimisation
-        </a>
+        Help: <Link>Searches</Link>, <Link>Pessimisation</Link>
       </div>
     </div>
   );
@@ -46,22 +43,7 @@ const ClicksExtraData = ({ ctr, isDanger }) => {
         Conversation from searches to clicks on all devices.
       </div>
       <div className={styles.help}>
-        Help:&nbsp;
-        <a
-          href="https://www.aviasales.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          CTR
-        </a>
-        ,&nbsp;
-        <a
-          href="https://www.aviasales.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Clicks
-        </a>
+        Help: <Link>CTR</Link>, <Link>Clicks</Link>
       </div>
     </div>
   );
@@ -76,32 +58,25 @@ const BookingsExtraData = ({ avg, str }) => {
         Conversion from clicks to bookings on all devices.
       </div>
       <div className={styles.help}>
-        Help:&nbsp;
-        <a
-          href="https://www.aviasales.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          STR
-        </a>
-        ,&nbsp;
-        <a
-          href="https://www.aviasales.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Bookings
-        </a>
-        ,&nbsp;
-        <a
-          href="https://www.aviasales.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Avg. Check
-        </a>
+        Help: <Link>STR</Link>, <Link>Bookings</Link>, <Link>Avg. Check</Link>
       </div>
     </div>
   );
+};
+Link.propTypes = {
+  children: PropTypes.string,
+};
+SearchesExtraData.propTypes = {
+  mobile: PropTypes.number,
+  web: PropTypes.number,
+  isDanger: PropTypes.bool,
+};
+ClicksExtraData.propTypes = {
+  ctr: PropTypes.number,
+  isDanger: PropTypes.bool,
+};
+BookingsExtraData.propTypes = {
+  avg: PropTypes.number,
+  str: PropTypes.number,
 };
 export { BookingsExtraData, SearchesExtraData, ClicksExtraData };

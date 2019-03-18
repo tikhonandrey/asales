@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './ChartBar.module.scss';
 import tinycolor from 'tinycolor2';
 const samplesColors = [
@@ -61,6 +62,8 @@ const Legenda = ({ color, name, value }) => {
 };
 const ChartBar = ({ loading, items }) => {
   const colorList = getColors(items.length);
+  console.log('colorList', colorList);
+
   let errorsAmount = 0;
   const chartData = items.map((item, i) => {
     errorsAmount += item.count;
@@ -82,5 +85,13 @@ const ChartBar = ({ loading, items }) => {
     </div>
   );
 };
-//todo proptypes
+ChartBar.propTypes = {
+  loading: PropTypes.bool,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      code: PropTypes.number,
+      count: PropTypes.number,
+    })
+  ),
+};
 export default ChartBar;
