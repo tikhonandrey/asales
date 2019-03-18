@@ -3,7 +3,8 @@
 .indicator {
   margin: 20px 0;
   display: grid;
-  grid-template-columns: 285px 1fr;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1vw;
   position: relative;
   padding: 20px 0;
   &:not(:last-of-type):before {
@@ -30,12 +31,14 @@
         margin: 0 0 0 10px;
       }
       h2 {
+        white-space: nowrap;
         text-transform: capitalize;
         &:first-of-type {
           margin-top: 0;
         }
       }
       h1 {
+        white-space: nowrap;
         text-transform: capitalize;
         display: flex;
         align-items: center;
