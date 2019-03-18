@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './Metrics.module.scss';
 import cn from 'classnames';
-import round from 'lodash.round';
-
-const MetricValue = ({ value }) =>
-  value ? <span>{round(value, 2)}&#37;</span> : <span>&#8208;</span>;
+import { getPercent } from '../../scripts/reactHelpers';
 
 const Metric = ({ name, value, average }) => {
   return (
@@ -12,11 +9,9 @@ const Metric = ({ name, value, average }) => {
       <div className={styles.status} />
       <div>
         <h3>
-          {name}: <MetricValue value={value} />
+          {name}: {getPercent(value)}
         </h3>
-        <span className={styles.average}>
-          Average: <MetricValue value={average} />
-        </span>
+        <span className={styles.average}>Average: {getPercent(average)}</span>
       </div>
     </div>
   );

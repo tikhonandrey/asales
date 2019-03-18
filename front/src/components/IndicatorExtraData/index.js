@@ -1,14 +1,8 @@
 import React from 'react';
 import styles from './ExtraData.module.scss';
 import cn from 'classnames';
-import { formatThousands } from '../../scripts/formatData';
+import { getInt, getPercent } from '../../scripts/reactHelpers';
 
-const getPercent = (float, dec = 2) => {
-  return float ? <span>{float.toFixed(dec)}&#37;</span> : <span>&#8208;</span>;
-};
-const getInt = int => {
-  return int ? formatThousands(Math.ceil(int)) : <span>&#8208;</span>;
-};
 const SearchesExtraData = ({ mobile, web, isDanger }) => {
   //todo а если не весь траффик? че показывать в description
   const desc = `You get 100% traffic on mobile and desktop devices.`;
@@ -72,7 +66,7 @@ const ClicksExtraData = ({ ctr, isDanger }) => {
     </div>
   );
 };
-//todo флоат проценты через запятую?
+
 const BookingsExtraData = ({ avg, str }) => {
   return (
     <div className={styles.indicatorExtraData}>
