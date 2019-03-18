@@ -6,9 +6,11 @@ const Avatar = ({ status, icon }) => {
     <div className={styles.avatar}>
       <div className={styles.circle}>
         <img src={icon} alt={icon} />
-        <div className={cn(styles.status, {
-          [styles[status]]: status
-        })} />
+        <div
+          className={cn(styles.status, {
+            [styles[status]]: status,
+          })}
+        />
       </div>
     </div>
   );

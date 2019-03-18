@@ -1,17 +1,20 @@
 {
   "name": "asales-test",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "classnames": "2.2.6",
     "lodash.round": "4.0.4",
     "node-sass": "4.11.0",
-    "normalize-scss": "^7.0.1",
+    "normalize.css": "8.0.1",
     "prop-types": "15.7.2",
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-scripts": "2.1.8",
-    "tinycolor2": "^1.4.1"
+    "tinycolor2": "1.4.1"
+  },
+  "devDependencies": {
+    "prettier": "1.16.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,8 +37,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "prettier": "1.16.4"
-  },
   "license": "MIT"
 }

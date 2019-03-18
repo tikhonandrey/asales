@@ -11,15 +11,29 @@ const getInt = int => {
 };
 const SearchesExtraData = ({ mobile, web, isDanger }) => {
   //todo а если не весь траффик? че показывать в description
+  const desc = `You get 100% traffic on mobile and desktop devices.`;
   return (
     <div className={styles.indicatorExtraData}>
       <h2>Mobile traffic: {getPercent(mobile, 0)}</h2>
       <h2>Web traffic: {getPercent(web, 0)}</h2>
-      <div className={styles.description}>
-        You get 100% traffic on mobile and desktop devices.
-      </div>
+      <div className={styles.description}>{desc}</div>
       <div className={styles.help}>
-        Help: <a href="#">Searches</a>, <a href="#">Pessimisation</a>
+        Help:&nbsp;
+        <a
+          href="https://www.aviasales.ru/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Searches
+        </a>
+        ,&nbsp;
+        <a
+          href="https://www.aviasales.ru/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Pessimisation
+        </a>
       </div>
     </div>
   );
@@ -38,7 +52,22 @@ const ClicksExtraData = ({ ctr, isDanger }) => {
         Conversation from searches to clicks on all devices.
       </div>
       <div className={styles.help}>
-        Help: <a href="#">CTR</a>, <a href="#">Clicks</a>
+        Help:&nbsp;
+        <a
+          href="https://www.aviasales.ru/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CTR
+        </a>
+        ,&nbsp;
+        <a
+          href="https://www.aviasales.ru/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Clicks
+        </a>
       </div>
     </div>
   );
@@ -53,8 +82,30 @@ const BookingsExtraData = ({ avg, str }) => {
         Conversion from clicks to bookings on all devices.
       </div>
       <div className={styles.help}>
-        Help: <a href="#">STR</a>, <a href="#">Bookings</a>,{' '}
-        <a href="#">Avg. Check</a>
+        Help:&nbsp;
+        <a
+          href="https://www.aviasales.ru/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          STR
+        </a>
+        ,&nbsp;
+        <a
+          href="https://www.aviasales.ru/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Bookings
+        </a>
+        ,&nbsp;
+        <a
+          href="https://www.aviasales.ru/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Avg. Check
+        </a>
       </div>
     </div>
   );
