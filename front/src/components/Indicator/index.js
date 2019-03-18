@@ -14,8 +14,7 @@ const Indicator = ({
   previousPeriod,
   title,
 }) => {
-
-  //красный отрицательный процент
+  //todo красный отрицательный процент
   let status;
   let diff;
   if (current && previous) {
@@ -23,6 +22,7 @@ const Indicator = ({
     diff = Math.floor(current / (previous * 100));
     diff = diff > 0 ? `+${diff}` : diff < 0 ? getPercent(diff) : diff;
   }
+  console.log('diff', diff);
 
   //todo линия когда появляется?
   const isLinedown = false;
@@ -33,7 +33,7 @@ const Indicator = ({
         <div className={styles.infoBox}>
           <h2>
             {title}
-            {diff !== 0 && <span className={styles.diff}>{diff}</span>}
+            {diff || diff !== 0 && <span className={styles.diff}>{diff}</span>}
           </h2>
           <h1>
             {current || current === 0 ? formatThousands(current) : '-'}
