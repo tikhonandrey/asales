@@ -12,19 +12,20 @@
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: inherit;
   }
-  .selected a {
-    background-color: $blue;
-    color: $white !important;
-    border: none;
-  }
   ul {
     user-select: none;
     margin: 0;
   }
   li {
     list-style-type: none;
-    &:not(:last-of-type) a {
-      border-right: none;
+
+    &.selected a,
+    &.selected a:hover,
+    &.selected a:focus,
+    &.selected a:active {
+      background-color: $blue;
+      color: $white;
+      border: none;
     }
     a {
       user-select: none;
@@ -58,13 +59,20 @@
       border-bottom-right-radius: 5px;
       border-top-right-radius: 5px;
     }
+    @include for-small-and-more {
+      &:not(:last-of-type) a {
+        border-right: none;
+      }
+    }
     @include for-xsmall-only {
       &:first-of-type a {
         border-bottom-left-radius: 0;
         border-top-left-radius: 5px;
+        border-bottom: none;
       }
       &:nth-child(2) a {
         border-top-right-radius: 5px;
+        border-bottom: none;
       }
       &:nth-child(3) a {
         border-bottom-left-radius: 5px;
@@ -73,8 +81,8 @@
         border-bottom-right-radius: 5px;
         border-top-right-radius: 0;
       }
-      a{
-        border-right: 1px solid $border !important;
+      &:nth-child(odd) a {
+        border-right: none;
       }
     }
   }
