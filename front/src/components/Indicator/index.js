@@ -57,6 +57,7 @@ const Indicator = ({
     </div>
   );
 };
+
 Indicator.propTypes = {
   children: PropTypes.node,
   loading: PropTypes.bool,
@@ -66,4 +67,5 @@ Indicator.propTypes = {
   previousPeriod: PropTypes.string,
   title: PropTypes.string,
 };
+
 export default Indicator;

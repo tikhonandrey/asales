@@ -15,9 +15,16 @@ const Link = ({ children }) => {
     </a>
   );
 };
+
 const SearchesExtraData = ({ mobile, web, isDanger }) => {
-  //todo а если не весь траффик? че показывать в description
-  const desc = `You get 100% traffic on mobile and desktop devices.`;
+  const isOkMobile = mobile >= 100;
+  const isOkWeb = web >= 100;
+  const both = isOkMobile && isOkWeb;
+  const desc = `You get 100% traffic on
+   ${isOkMobile ? 'mobile' : ''}
+    ${both ? 'and' : ''}
+   ${isOkWeb ? 'desktop' : ''} device${both ? 's' : ''}.`;
+
   return (
     <div className={styles.indicatorExtraData}>
       <h2>Mobile traffic: {getPercent(mobile, 0)}</h2>
@@ -29,6 +36,7 @@ const SearchesExtraData = ({ mobile, web, isDanger }) => {
     </div>
   );
 };
+
 const ClicksExtraData = ({ ctr, isDanger }) => {
   return (
     <div className={styles.indicatorExtraData}>
@@ -63,6 +71,7 @@ const BookingsExtraData = ({ avg, str }) => {
     </div>
   );
 };
+
 Link.propTypes = {
   children: PropTypes.string,
 };
@@ -79,4 +88,5 @@ BookingsExtraData.propTypes = {
   avg: PropTypes.number,
   str: PropTypes.number,
 };
+
 export { BookingsExtraData, SearchesExtraData, ClicksExtraData };

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ChartBar.module.scss';
 import tinycolor from 'tinycolor2';
+
 const samplesColors = [
   '#ff761c',
   '#5856d5',
@@ -11,7 +12,7 @@ const samplesColors = [
   '#4d95f3',
   '#ef6a67',
 ];
-//todo доделать генерацию цветов
+
 const getColors = amount => {
   const start = tinycolor(samplesColors[Math.floor(Math.random() * 7)]);
   const arr = new Array(amount)
@@ -26,6 +27,7 @@ const getColors = amount => {
 
   return [...new Set(arr)];
 };
+
 const Bar = ({ loading, items, summ }) => {
   return (
     <div className={styles.bar}>
@@ -44,6 +46,7 @@ const Bar = ({ loading, items, summ }) => {
     </div>
   );
 };
+
 const Legenda = ({ color, name, value }) => {
   return (
     <div className={styles.legenda}>
@@ -59,6 +62,7 @@ const Legenda = ({ color, name, value }) => {
     </div>
   );
 };
+
 const ChartBar = ({ loading, items }) => {
   const colorList = getColors(items.length);
   let errorsAmount = 0;
@@ -82,6 +86,7 @@ const ChartBar = ({ loading, items }) => {
     </div>
   );
 };
+
 ChartBar.propTypes = {
   loading: PropTypes.bool,
   items: PropTypes.arrayOf(
@@ -91,4 +96,5 @@ ChartBar.propTypes = {
     })
   ),
 };
+
 export default ChartBar;

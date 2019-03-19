@@ -14,13 +14,13 @@ import {
 } from '../../components/IndicatorExtraData';
 import { METRICS_AVERAGE } from './consts.js';
 
-//todo режим лоадинг(заглушки вместо данных)
 const tabPanelItems = {
   last_hour: 'Last hour',
   today: 'Today',
   yesterday: 'Yesterday',
   last_3days: 'Last 3 days',
 };
+const lastPeriod = 'Last friday';
 
 class Dashboard extends Component {
   state = {
@@ -30,8 +30,6 @@ class Dashboard extends Component {
     charts: {},
   };
   render() {
-    console.log('I am Dashboard');
-
     const { selectedPeriod: selected, loading, metrics, charts } = this.state;
 
     const tabPanelProps = {
@@ -44,7 +42,7 @@ class Dashboard extends Component {
       errors: metrics[`errors_${selected}`],
       zeroes: metrics[`zeroes_${selected}`],
       timeout: metrics[`timeout_${selected}`],
-      average: METRICS_AVERAGE,  //todo откуда это взятьсреднее от чего, за какой период?
+      average: METRICS_AVERAGE,
     };
     const chartBar = {
       loading,
@@ -56,7 +54,7 @@ class Dashboard extends Component {
       current: metrics[`searches_current_${selected}`],
       previous: metrics[`searches_previous_${selected}`],
       currentPeriod: tabPanelItems[selected],
-      previousPeriod: 'Last friday', //todo прошлый период??
+      previousPeriod: lastPeriod,
     };
     const clicksIndicatorProps = {
       loading,
@@ -64,7 +62,7 @@ class Dashboard extends Component {
       current: metrics[`clicks_current_${selected}`],
       previous: metrics[`clicks_previous_${selected}`],
       currentPeriod: tabPanelItems[selected],
-      previousPeriod: 'Last friday', //todo прошлый период??
+      previousPeriod: lastPeriod,
     };
     const bookungsIndicatorProps = {
       loading,
@@ -72,7 +70,7 @@ class Dashboard extends Component {
       current: metrics[`bookings_current_${selected}`],
       previous: metrics[`bookings_previous_${selected}`],
       currentPeriod: tabPanelItems[selected],
-      previousPeriod: 'Last friday', //todo прошлый период??
+      previousPeriod: lastPeriod,
     };
     return (
       <ErrorBoundary

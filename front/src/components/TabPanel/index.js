@@ -26,6 +26,7 @@ const TabPanel = ({ items, selected, onClick }) => {
     </ul>
   );
 };
+
 TabPanel.propTypes = {
   onClick: PropTypes.func.isRequired,
   items: PropTypes.object.isRequired,

@@ -31,6 +31,7 @@ const Metrics = ({ loading, errors, zeroes, timeout, average }) => {
     </div>
   );
 };
+
 Metric.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.number,
@@ -43,4 +44,5 @@ Metrics.propTypes = {
   timeout: PropTypes.number,
   average: PropTypes.number,
 };
+
 export default Metrics;
