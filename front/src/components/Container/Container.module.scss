@@ -4,12 +4,14 @@
 .container {
   padding: 20px;
   margin: 10px;
-  border-radius: 7px;
+  border-radius: 37px;
   background-color: $background;
   max-width: 748px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+
   @include for-xsmall-only {
     padding: 10px;
     margin: 0;
-    border: none;
+    border-radius: 5px;
   }
 }

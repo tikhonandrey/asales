@@ -23,7 +23,6 @@ const getColors = amount => {
     .map(item => {
       return item.toHexString();
     });
-  console.log('arr', arr);
 
   return [...new Set(arr)];
 };
@@ -62,8 +61,6 @@ const Legenda = ({ color, name, value }) => {
 };
 const ChartBar = ({ loading, items }) => {
   const colorList = getColors(items.length);
-  console.log('colorList', colorList);
-
   let errorsAmount = 0;
   const chartData = items.map((item, i) => {
     errorsAmount += item.count;
