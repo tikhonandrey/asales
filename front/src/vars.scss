@@ -13,24 +13,25 @@ $black: #4a4a4a;
 $white: #ffffff;
 
 //алиасы
-$body: $gray-lighter;
-$background: $white;
-$border: $gray;
-$text: $black;
-$second-text: $gray-light;
-$link: $blue;
-$link-hover: $orangeless;
-$link-active: $orange;
-
-//ночная тема
-//$body: $gray-light;
-//$background: $black;
+//$body: $gray-lighter;
+//$background: $white;
 //$border: $gray;
-//$text: $white;
+//$text: $black;
 //$second-text: $gray-light;
 //$link: $blue;
 //$link-hover: $orangeless;
 //$link-active: $orange;
+
+//ночная тема
+$body: $gray-light;
+$background: $black;
+$border: $gray;
+$text: $white;
+$second-text: $gray-light;
+$link: lighten($blue, 10);
+$link-hover: $orangeless;
+$link-active: $orange;
+$green: lighten($green, 10);
 
 //девайсы
 $screen-min: 320px;
