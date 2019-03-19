@@ -6,6 +6,7 @@
   margin: 10px;
   border-radius: 7px;
   background-color: $background;
+  max-width: 748px;
   @include for-xsmall-only {
     padding: 10px;
     margin: 0;

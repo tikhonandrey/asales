@@ -1,13 +1,6 @@
 @import '../../vars';
 
 .avatar {
-  img{
-    display: none;
-    margin: 0 0 0 14px;
-    &.active{
-      display: block;
-    }
-  }
   .circle {
     position: relative;
     border-radius: 24px;
@@ -44,7 +37,5 @@
   .bookings {
     background-image: url('./images/booking.svg');
   }
-  .linedown {
-    background-image: url('./images/linedown.png');
-  }
+
 }

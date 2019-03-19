@@ -23,12 +23,13 @@ const Indicator = ({
     delta = getDeltaPercent(previous, current);
     diff = getPercent(delta, 0, current >= previous && '+');
   }
-  //todo линия когда появляется?
-  const isLinedown = false;
   return (
     <div className={styles.indicator}>
       <div className={styles.info}>
-        <Avatar status={status} icon={title} isLinedown={isLinedown} />
+        <div>
+          <Avatar status={status} icon={title} />
+          <div className={styles.linedown} />
+        </div>
         <div className={styles.infoBox}>
           <h2>
             {title}
