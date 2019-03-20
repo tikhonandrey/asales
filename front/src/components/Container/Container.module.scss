@@ -1,5 +1,6 @@
 @import '../../vars';
 @import '../../mixin';
+@import '../../animations';
 
 .container {
   padding: 20px;
@@ -8,7 +9,24 @@
   background-color: $background;
   max-width: 748px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-
+  position: relative;
+  &.hideLoader .loader {
+    //opacity: 0;
+    animation: bounce-scale 1.5s linear both;
+    animation-direction: reverse;
+  }
+  .loader {
+    //opacity: 1;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    height: 30px;
+    width: 30px;
+    background-image: url('./images/loader.svg');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-position: center center;
+  }
   @include for-xsmall-only {
     padding: 10px;
     margin: 0;

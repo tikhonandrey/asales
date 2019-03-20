@@ -78,7 +78,7 @@ class Dashboard extends Component {
           this.errorCatcher = el;
         }}
       >
-        <Container>
+        <Container hideLoader={!loading}>
           <h1>Main metrics</h1>
           <TabPanel {...tabPanelProps} />
           <Metrics {...metricsProps} />
@@ -126,6 +126,7 @@ class Dashboard extends Component {
       try {
         const { metrics, charts } = await getDashboardData();
         this.setState({
+          loading: false,
           selectedPeriod: getIdInHash() || 'last_hour',
           metrics,
           charts,

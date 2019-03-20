@@ -1,6 +1,6 @@
 export const formatThousands = sourceNum => {
   const num = `${sourceNum}`;
-  return ('' + num)
+  return num
     .replace(
       new RegExp(
         '^(\\d{' + (num.length % 3 ? num.length % 3 : 0) + '})(\\d{3})',
@@ -13,4 +13,4 @@ export const formatThousands = sourceNum => {
 };
 export const getDeltaPercent = (previous, current) => {
   return Math.round((current * 100) / previous) - 100;
-}
+};

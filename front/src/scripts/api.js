@@ -2,6 +2,13 @@ const API_SRV = 'http://127.0.0.1:8000';
 const getDashboardData = () => {
   return fetch(`${API_SRV}/dashboard_data.json`)
     .then(response => response.json())
+    .then(result => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(result);
+        }, 3000);
+      });
+    })
     .then(data => {
       let metrics = {};
       let charts = {};
