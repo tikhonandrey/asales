@@ -19,15 +19,15 @@
   li {
     list-style-type: none;
 
-    &.selected a,
-    &.selected a:hover,
-    &.selected a:focus,
-    &.selected a:active {
-      background-color: $blue;
-      color: $white;
-      border: none;
-    }
     a {
+      &.selected,
+      &.selected:hover,
+      &.selected:focus,
+      &.selected:active {
+        background-color: $blue;
+        color: $white;
+        border: none;
+      }
       user-select: none;
       display: flex;
       align-items: center;

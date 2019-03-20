@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getDashboardData } from '../../scripts/api';
-import { getIdInHash } from '../../scripts/routing';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import Container from '../../components/Container';
 import TabPanel from '../../components/TabPanel';
@@ -38,8 +37,7 @@ class Dashboard extends Component {
     const { selectedPeriod: selected, loading, metrics, charts } = this.state;
 
     const tabPanelProps = {
-      selected,
-      items: tabPanelItems
+      items: tabPanelItems,
     };
     const metricsProps = {
       loading,
@@ -95,7 +93,7 @@ class Dashboard extends Component {
             <ClicksExtraData
               {...{
                 ctr: metrics[`ctr_${selected}`],
-                isDanger: true, //todo
+                isDanger: true,
               }}
             />
           </Indicator>
@@ -111,13 +109,18 @@ class Dashboard extends Component {
       </ErrorBoundary>
     );
   }
+
   componentWillMount() {
     this.loadData();
   }
-  componentWillReceiveProps(nextProps, nextContext) {
-    if (nextProps.location.hash !== this.props.location.hash) {
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.match.params.selectedPeriod !==
+      this.props.match.params.selectedPeriod
+    ) {
       this.setState({
-        selectedPeriod: getIdInHash(nextProps.location) || 'last_hour',
+        selectedPeriod: nextProps.match.params.selectedPeriod,
       });
     }
   }
@@ -128,7 +131,7 @@ class Dashboard extends Component {
         const { metrics, charts } = await getDashboardData();
         this.setState({
           loading: false,
-          selectedPeriod: getIdInHash(this.props.location) || 'last_hour',
+          selectedPeriod: this.props.match.params.selectedPeriod,
           metrics,
           charts,
         });
@@ -162,6 +165,11 @@ Dashboard.propTypes = {
     pathname: PropTypes.string,
     search: PropTypes.string,
   }),
-  match: PropTypes.any,
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      selectedPeriod: PropTypes.string,
+    }),
+  }),
 };
 export default Dashboard;
