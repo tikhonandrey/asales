@@ -23,12 +23,16 @@ const tabPanelItems = {
 const lastPeriod = 'Last friday';
 
 class Dashboard extends Component {
-  state = {
-    loading: false,
-    selectedPeriod: 'last_hour',
-    metrics: {},
-    charts: {},
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      selectedPeriod: 'last_hour',
+      metrics: {},
+      charts: {},
+    };
+    this.errorCatcher = React.createRef();
+  }
   render() {
     const { selectedPeriod: selected, loading, metrics, charts } = this.state;
 
@@ -73,11 +77,7 @@ class Dashboard extends Component {
       previousPeriod: lastPeriod,
     };
     return (
-      <ErrorBoundary
-        ref={el => {
-          this.errorCatcher = el;
-        }}
-      >
+      <ErrorBoundary ref={this.errorCatcher}>
         <Container hideLoader={!loading}>
           <h1>Main metrics</h1>
           <TabPanel {...tabPanelProps} />
