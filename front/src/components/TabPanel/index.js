@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './TabPanel.module.scss';
 import cn from 'classnames';
-
+import { Link } from 'react-router-dom';
 const TabPanel = ({ items, selected, onClick }) => {
   return (
     <ul className={styles.tabPanel}>
@@ -13,14 +13,9 @@ const TabPanel = ({ items, selected, onClick }) => {
             [styles.selected]: selected === key,
           })}
         >
-          <a
-            tabIndex={1}
-            draggable="false"
-            href={`#${key}`}
-            onClick={onClick(key)}
-          >
+          <Link tabIndex={1} draggable="false" to={`#${key}`}>
             {items[key]}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
@@ -28,7 +23,7 @@ const TabPanel = ({ items, selected, onClick }) => {
 };
 
 TabPanel.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   items: PropTypes.object.isRequired,
   selected: PropTypes.string,
 };

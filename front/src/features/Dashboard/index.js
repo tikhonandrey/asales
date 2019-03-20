@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { getDashboardData } from '../../scripts/api';
 import { getIdInHash } from '../../scripts/routing';
 import ErrorBoundary from '../../components/ErrorBoundary';
@@ -38,8 +39,7 @@ class Dashboard extends Component {
 
     const tabPanelProps = {
       selected,
-      items: tabPanelItems,
-      onClick: this.onSelectPeriod,
+      items: tabPanelItems
     };
     const metricsProps = {
       loading,
@@ -112,13 +112,14 @@ class Dashboard extends Component {
     );
   }
   componentWillMount() {
-    window.addEventListener('hashchange', this.onHashChange);
-
     this.loadData();
   }
-
-  componentWillUnmount() {
-    window.removeEventListener('hashchange', this.onHashChange);
+  componentWillReceiveProps(nextProps, nextContext) {
+    if (nextProps.location.hash !== this.props.location.hash) {
+      this.setState({
+        selectedPeriod: getIdInHash(nextProps.location) || 'last_hour',
+      });
+    }
   }
 
   loadData() {
@@ -127,7 +128,7 @@ class Dashboard extends Component {
         const { metrics, charts } = await getDashboardData();
         this.setState({
           loading: false,
-          selectedPeriod: getIdInHash() || 'last_hour',
+          selectedPeriod: getIdInHash(this.props.location) || 'last_hour',
           metrics,
           charts,
         });
@@ -147,10 +148,6 @@ class Dashboard extends Component {
     });
   }
 
-  onHashChange = () => {
-    this.onSelectPeriod(getIdInHash())();
-  };
-
   onSelectPeriod = index => () => {
     if (this.state.selectedPeriod === index) return;
     this.setState({
@@ -158,5 +155,13 @@ class Dashboard extends Component {
     });
   };
 }
-
+Dashboard.propTypes = {
+  history: PropTypes.any,
+  location: PropTypes.shape({
+    hash: PropTypes.string,
+    pathname: PropTypes.string,
+    search: PropTypes.string,
+  }),
+  match: PropTypes.any,
+};
 export default Dashboard;
