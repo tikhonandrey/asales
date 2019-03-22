@@ -4,18 +4,22 @@
   "private": true,
   "dependencies": {
     "classnames": "2.2.6",
+    "connected-react-router": "6.3.2",
+    "immhelper": "1.0.50",
     "node-sass": "4.11.0",
     "normalize.css": "8.0.1",
     "prop-types": "15.7.2",
     "react": "16.8.4",
-    "react-dom": "16.8.4",
+    "react-dom": "npm:@hot-loader/react-dom",
+    "react-hot-loader": "^4.8.0",
     "react-redux": "6.0.1",
     "react-router-dom": "5.0.0",
-    "connected-react-router": "6.3.2",
     "react-scripts": "2.1.8",
     "redux": "4.0.1",
     "redux-saga": "1.0.2",
-    "tinycolor2": "1.4.1"
+    "tinycolor2": "1.4.1",
+    "history": "4.9.0",
+    "reselect": "4.0.0"
   },
   "devDependencies": {
     "prettier": "1.16.4"
