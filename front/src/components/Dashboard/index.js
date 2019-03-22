@@ -25,6 +25,7 @@ export default class Dashboard extends PureComponent {
     const {
       selectedPeriod: selected,
       loading,
+      error,
       metrics,
       charts,
       average,
@@ -69,7 +70,7 @@ export default class Dashboard extends PureComponent {
       previousPeriod: lastPeriod,
     };
     return (
-      <ErrorBoundary ref={this.errorCatcher}>
+      <ErrorBoundary error={error}>
         <Container hideLoader={!loading}>
           <h1>Main metrics</h1>
           <TabPanel {...tabPanelProps} />
@@ -108,6 +109,7 @@ export default class Dashboard extends PureComponent {
 Dashboard.propTypes = {
   selectedPeriod: PropTypes.string,
   loading: PropTypes.bool,
+  error: PropTypes.string,
   metrics: PropTypes.any,
   charts: PropTypes.any,
   average: PropTypes.number,

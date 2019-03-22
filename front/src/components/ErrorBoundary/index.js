@@ -10,6 +10,13 @@ class ErrorBoundary extends Component {
     super(props);
     this.state = { error: null, errorInfo: null };
   }
+  componentWillReceiveProps(nextProps, nextContext) {
+    if (nextProps.error !== this.props.error) {
+      this.setState({
+        error: nextProps.error,
+      });
+    }
+  }
 
   componentDidCatch(error, errorInfo) {
     this.setState({

@@ -8,12 +8,13 @@ import {
   isLoadingDashboard,
   getChartInfoDashboard,
   getMetricsDashboard,
-  METRICS_AVERAGE
+  errorDashboard,
+  METRICS_AVERAGE,
 } from './duck';
 
 export class DashboardContainer extends Component {
   render() {
-    const {fetchDashboardData, ...other} = this.props;
+    const { fetchDashboardData, ...other } = this.props;
     const props = {
       ...other,
       average: METRICS_AVERAGE,
@@ -41,6 +42,7 @@ DashboardContainer.propTypes = {
   fetchDashboardData: PropTypes.func,
   selectedPeriod: PropTypes.string,
   loading: PropTypes.bool,
+  error: PropTypes.string,
   metrics: PropTypes.any,
   charts: PropTypes.any,
   average: PropTypes.number,
@@ -48,6 +50,7 @@ DashboardContainer.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
   loading: isLoadingDashboard(state),
+  error: errorDashboard(state),
   metrics: getMetricsDashboard(state),
   charts: getChartInfoDashboard(state),
   selectedPeriod: ownProps.match.params.selectedPeriod,
@@ -56,6 +59,6 @@ const mapStateToProps = (state, ownProps) => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchDashboardData },
+    { fetchDashboardData }
   )(DashboardContainer)
 );
