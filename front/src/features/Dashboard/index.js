@@ -5,10 +5,10 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   fetchDashboardData,
-  isLoadingDashboard,
-  getChartInfoDashboard,
-  getMetricsDashboard,
-  errorDashboard,
+  isLoadingSelector,
+  getChartInfoSelector,
+  getMetricsSelector,
+  errorSelector,
   METRICS_AVERAGE,
 } from './duck';
 
@@ -49,10 +49,10 @@ DashboardContainer.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  loading: isLoadingDashboard(state),
-  error: errorDashboard(state),
-  metrics: getMetricsDashboard(state),
-  charts: getChartInfoDashboard(state),
+  loading: isLoadingSelector(state),
+  error: errorSelector(state),
+  metrics: getMetricsSelector(state),
+  charts: getChartInfoSelector(state),
   selectedPeriod: ownProps.match.params.selectedPeriod,
 });
 

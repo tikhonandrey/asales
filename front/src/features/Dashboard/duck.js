@@ -1,5 +1,6 @@
-import { takeEvery, all, put } from 'redux-saga/effects';
+import { takeEvery, all, call, put } from 'redux-saga/effects';
 import { getDashboardData } from '../../scripts/api';
+import { createSelector } from 'reselect';
 
 export const moduleName = 'dashboard';
 const prefix = `${moduleName}`;
@@ -39,10 +40,23 @@ export function reducer(state = initialState, action) {
 /**
  * Selectors
  * */
-export const isLoadingDashboard = state => state[moduleName].loading;
-export const errorDashboard = state => state[moduleName].error;
-export const getMetricsDashboard = state => state[moduleName].metrics;
-export const getChartInfoDashboard = state => state[moduleName].charts;
+export const stateSelector = state => state[moduleName];
+export const isLoadingSelector = createSelector(
+  stateSelector,
+  state => state.loading
+);
+export const errorSelector = createSelector(
+  stateSelector,
+  state => state.error
+);
+export const getMetricsSelector = createSelector(
+  stateSelector,
+  state => state.metrics
+);
+export const getChartInfoSelector = createSelector(
+  stateSelector,
+  state => state.charts
+);
 
 /**
  * Action Creators
@@ -61,7 +75,7 @@ export function* fetchDashboardSaga() {
     type: LOADING,
   });
   try {
-    const data = yield getDashboardData();
+    const data = yield call(getDashboardData);
     yield put({
       type: LOADED,
       payload: data,
